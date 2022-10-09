@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\tiket;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,15 +20,7 @@ Route::get('/', function () {
 
 Route::get('/tiket', function () {
     return view('tiket', [
-        "tikets" => [
-            [
-                "id" => "1",
-                "asal" => "Jakarta",
-                "tujuan" => "Bandung",
-                "maskapai" => "Sriwijaya",
-                "kelas" => "Ekonomi",
-                "harga" => 1000000
-            ]
-            ]
+        "title" => "Tiket",
+        "tikets" => tiket::all()
     ]);
 });
