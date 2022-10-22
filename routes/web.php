@@ -2,6 +2,7 @@
 
 use App\Models\tiket;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware(['auth']);
 
 Route::get('/tiket', function () {
     return view('tiket', [
@@ -24,3 +25,15 @@ Route::get('/tiket', function () {
         "tikets" => tiket::all()
     ]);
 });
+
+Route::get('/register', function(){
+    return view('register');
+})->name("register");
+
+Route::post('/action-register', [AuthController::class, 'actionRegister']);
+
+Route::get('/login', [AuthController::class, 'loginView'])->name("login");
+
+Route::post('/action-login', [AuthController::class, 'actionLogin']);
+
+Route::get('/logout', [AuthController::class, 'logout']);
