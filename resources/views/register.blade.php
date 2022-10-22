@@ -17,12 +17,12 @@
         <div class="card-text">
             @if(session('success'))
             <div class="alert alert-success">
-                <b>Yeah!</b> {{session('success')}}
+                <b>Berhasil!</b> {{session('success')}}
             </div>
             @endif
             @if(session('error'))
             <div class="alert alert-danger">
-                <b>Opps!</b> {{session('error')}}
+                <b>Gagal!</b> {{session('error')}}
             </div>
             @endif                                 
           <form action="{{url('/action-register')}}" method="POST">

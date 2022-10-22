@@ -16,10 +16,10 @@ class AuthController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-            session()->flash('success', 'Berhasil Membuat Akun!');
+            session()->flash('success', 'Akun Anda Telah Terdaftar');
             return redirect('/register');
         }else{
-            session()->flash('error', 'Konfirmasi password anda berbeda!');
+            session()->flash('error', 'Konfirmasi Password Berbeda');
             return redirect('/register');
         }
     }

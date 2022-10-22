@@ -18,12 +18,12 @@
         <div class="card-text">
             @if(session('error'))
             <div class="alert alert-danger">
-                <b>Yeah!</b> {{session('error')}}
+                <b>Gagal</b> {{session('error')}}
             </div>
             @endif
             @if(session('username'))
             <div class="alert alert-danger">
-                <b>Opps!</b> {{session('username')}}
+                <b>Gagal!</b> {{session('username')}}
             </div>
             @endif                        
           <form action="{{url('/action-login')}}" method="POST">
