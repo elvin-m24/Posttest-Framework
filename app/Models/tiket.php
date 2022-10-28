@@ -13,6 +13,9 @@ class tiket extends Model
     }
 
     use HasFactory;
+
+    protected $table = "tikets";
+
     protected $fillable = [
         'asal',
         'tujuan',

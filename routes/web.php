@@ -2,6 +2,7 @@
 
 use App\Models\tiket;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TiketController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -37,3 +38,10 @@ Route::get('/login', [AuthController::class, 'loginView'])->name("login");
 Route::post('/action-login', [AuthController::class, 'actionLogin']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/show/{id}','App\Http\Controllers\TiketController@show')->middleware('auth');
+
+Route::get('/create','App\Http\Controllers\TiketController@create')->middleware('auth');
+Route::post('/store','App\Http\Controllers\TiketController@store')->middleware('auth');
+
+

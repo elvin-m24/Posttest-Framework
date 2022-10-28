@@ -7,6 +7,8 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+        <a href=/create class=""><Button class="btn btn-primary mb-3">Tambah</Button></a>
+
         <table border="5" class="table table-success table-striped">
             <tr>
                 <th>No</th>
@@ -26,7 +28,7 @@
                 <td>{{ $t->pesawat->kelas }}</td>
                 <td>{{ $t->harga }}</td>
                 <td>
-                    <a href="#">Beli</a>
+                    <a href= {{ route('show', $t->id) }} class=""><Button class="btn btn-success mb-3">Lihat</Button></a>                    
                 </td>
             </tr>
             @endforeach
