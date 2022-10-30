@@ -39,9 +39,13 @@ Route::post('/action-login', [AuthController::class, 'actionLogin']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/show/{id}','App\Http\Controllers\TiketController@show')->middleware('auth');
+Route::get('/show/{id}',[TiketController::class, 'show'])->name('show')->middleware('auth');
 
-Route::get('/create','App\Http\Controllers\TiketController@create')->middleware('auth');
-Route::post('/store','App\Http\Controllers\TiketController@store')->middleware('auth');
+Route::get('/create',[TiketController::class, 'create'])->middleware('auth');
+Route::post('/store',[TiketController::class, 'store'])->middleware('auth');
 
+Route::get('/edit/{id}',[TiketController::class, 'edit'])->name('edit')->middleware('auth');
+Route::post('/update',[TiketController::class, 'update'])->name('update')->middleware('auth');
+
+Route::get('/destroy/{id}',[TiketController::class, 'destroy'])->name('destroy')->middleware('auth');
 

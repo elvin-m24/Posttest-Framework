@@ -28,11 +28,13 @@
                 <td>{{ $t->pesawat->kelas }}</td>
                 <td>{{ $t->harga }}</td>
                 <td>
-                    <a href= {{ route('show', $t->id) }} class=""><Button class="btn btn-success mb-3">Lihat</Button></a>                    
+                    <a href= {{ route('show', $t->id) }} class=""><Button class="btn btn-success mb-3">Lihat</Button></a>
+                    <a href= {{ route('edit', $t->id) }} class=""><Button class="btn btn-warning mb-3">Edit</Button></a>
+                    <a href= {{ route('destroy', $t->id) }} class=""><Button class="btn btn-danger mb-3">Hapus</Button></a>
                 </td>
             </tr>
             @endforeach
-        </table>
+        </table>    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
         <a href='/'>Kembali</a>
     </body>

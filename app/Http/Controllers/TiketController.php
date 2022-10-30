@@ -32,7 +32,7 @@ class TiketController extends Controller
             'harga' => $request->harga,
         ]);
         
-        return redirect('/tiket')->with('success','Keberangkatan Telah Ditambah.');
+        return redirect('/tiket')->with('Keberangkatan Telah Ditambah.');
     }
 
     public function show($id){
@@ -42,6 +42,33 @@ class TiketController extends Controller
             'title' => 'Tiket',
             'tikets' => $tiket
         ]);
+    }
+
+    public function edit($id)
+    {        
+		$tiket = DB::table('tikets')->where('id', $id)->get();
+
+		return view('edit',['tikets' => $tiket]);
+    }
+
+    public function update(Request $request, tiket $tiket)
+    {
+        DB::table('tikets')->where('id',$request->id)->update([        
+            'kodetiket' => $request->kodetiket, 
+            'asal' => $request->asal,
+            'tujuan' => $request->tujuan,                        
+            'pesawat_id' => $request->pesawat_id,
+            'harga' => $request->harga,			
+		]);        
+	
+		return redirect('/tiket')->with('Berhasil diupdate');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('tikets')->where('id',$id)->delete();
+
+		return redirect('/tiket');
     }
 
 }
